@@ -167,7 +167,7 @@ class Berny(Generator):
             s.best = current
         s.first = False
         self._converged = is_converged(
-            current.g, s.future.q - current.q, on_sphere, s.params, log=log
+            dE, current.g, s.future.q - current.q, on_sphere, s.params, log=log
         )
         if self._n == self._maxsteps:
             log('Maximum number of steps reached')
