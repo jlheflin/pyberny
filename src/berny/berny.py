@@ -19,6 +19,7 @@ __all__ = ['Berny']
 log = logging.getLogger(__name__)
 
 defaults = {
+    'energy_delta': 1e-6,
     'gradientmax': 0.45e-3,
     'gradientrms': 0.15e-3,
     'stepmax': 1.8e-3,
@@ -256,10 +257,11 @@ def quadratic_step(g, H, w, trust, log=no_log):
     return dq, dE, on_sphere
 
 
-def is_converged(forces, step, on_sphere, params, log=no_log):
+def is_converged(de, forces, step, on_sphere, params, log=no_log):
     criteria = [
         ('Gradient RMS', Math.rms(forces), params['gradientrms']),
         ('Gradient maximum', np.max(abs(forces)), params['gradientmax']),
+        ('Energy difference', de, params['energy_delta'])
     ]
     if on_sphere:
         criteria.append(('Minimization on sphere', False))
