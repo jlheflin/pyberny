@@ -118,7 +118,7 @@ def findroot(f, lim):
     Assumes f(-inf) < 0, f(lim) > 0.
     """
     d = 1.0
-    for _ in range(1000):
+    for _ in range(10000):
         val = f(lim - d)
         if val > 0:
             break

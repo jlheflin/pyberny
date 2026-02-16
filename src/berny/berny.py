@@ -29,7 +29,7 @@ defaults = {
     'superweakdih': False,
 }
 """
-``gradientmax``, ``gradientrms``, ``stepmax``, ``steprms``
+``energy_delta``, ``gradientmax``, ``gradientrms``, ``stepmax``, ``steprms``
     Convergence criteria in atomic units ("step" refers to the step in
     internal coordinates, assuming radian units for angles).
 
